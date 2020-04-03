@@ -1,14 +1,11 @@
 package com.hamza.mvvmwithdatabinding.utils
 
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 object Coroutines {
 
-     fun<T:Any> ioThenMain(work:suspend ()->T?,callback:(T?)->Unit){
-         CoroutineScope(Dispatchers.Main).launch {
+     fun<T:Any> ioThenMain(work:suspend () -> T? ,callback: (T?) -> Unit): Job {
+        return CoroutineScope(Dispatchers.Main).launch {
             val data= CoroutineScope(Dispatchers.IO).async rt@{
                  return@rt work()
              }.await()
