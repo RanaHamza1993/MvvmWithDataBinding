@@ -16,10 +16,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val movieRepo=Repository(this.applicationContext,ServiceBuilder(MovieService::class.java))
-        GlobalScope.launch(Dispatchers.Main) {
-            val list=movieRepo.getMovies()
-            Toast.makeText(this@MainActivity,list.toString(),Toast.LENGTH_SHORT).show()
-        }
+//        val movieRepo=Repository(ServiceBuilder(MovieService::class.java))
+//        GlobalScope.launch(Dispatchers.Main) {
+//            val list=movieRepo.getMovies()
+//            Toast.makeText(this@MainActivity,list.toString(),Toast.LENGTH_SHORT).show()
+//        }
     }
 }
