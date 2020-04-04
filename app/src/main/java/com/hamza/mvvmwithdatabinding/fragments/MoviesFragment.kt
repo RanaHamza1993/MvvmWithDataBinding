@@ -1,6 +1,5 @@
 package com.hamza.mvvmwithdatabinding.fragments
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hamza.mvvmwithdatabinding.R
 import com.hamza.mvvmwithdatabinding.adapters.MoviesAdapter
 import com.hamza.mvvmwithdatabinding.endpoints.MovieService
-import com.hamza.mvvmwithdatabinding.interfaces.onRecyclerViewClickListener
+import com.hamza.mvvmwithdatabinding.interfaces.IOnRecyclerViewClickListener
 import com.hamza.mvvmwithdatabinding.models.Movie
 import com.hamza.mvvmwithdatabinding.repos.Repository
 import com.hamza.mvvmwithdatabinding.utils.ServiceBuilder
@@ -23,7 +22,7 @@ import com.hamza.mvvmwithdatabinding.utils.ViewModelsFactory
 import com.hamza.mvvmwithdatabinding.viewmodels.MoviesViewModel
 import kotlinx.android.synthetic.main.movies_fragment.*
 
-class MoviesFragment : Fragment(),onRecyclerViewClickListener {
+class MoviesFragment : Fragment(),IOnRecyclerViewClickListener {
     private lateinit var viewModel: MoviesViewModel
 
     override fun onCreateView(
@@ -54,6 +53,10 @@ class MoviesFragment : Fragment(),onRecyclerViewClickListener {
          }
          R.id.layout_like->{
              Toast.makeText(requireContext(),"Like  was clicked",Toast.LENGTH_SHORT).show()
+
+         }
+         R.id.imageView->{
+             Toast.makeText(requireContext(),"Image  was clicked",Toast.LENGTH_SHORT).show()
 
          }
          else ->{

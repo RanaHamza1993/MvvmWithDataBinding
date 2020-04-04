@@ -8,6 +8,10 @@
         <variable
             name="movie"
             type="com.hamza.mvvmwithdatabinding.models.Movie" />
+
+        <variable
+            name="recyclerViewListener"
+            type="com.hamza.mvvmwithdatabinding.interfaces.IOnRecyclerViewClickListener" />
     </data>
 
     <LinearLayout
@@ -31,6 +35,7 @@
                     <ImageView
                         android:id="@+id/imageView"
                         app:image="@{movie.image}"
+                        android:onClick="@{(view)->recyclerViewListener.onItemClick(view,movie)}"
                         android:background="@drawable/captain_marvel"
                         android:layout_width="match_parent"
                         android:scaleType="matrix"
@@ -74,6 +79,7 @@
                         android:paddingLeft="12dp"
                         android:paddingRight="12dp"
                         android:layout_margin="15dp"
+                        android:onClick="@{(view)->recyclerViewListener.onItemClick(view,movie)}"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
                         android:background="@drawable/relativelayout_background"
@@ -140,6 +146,7 @@
                         android:id="@+id/button_book"
                         android:layout_alignParentRight="true"
                         android:text="Book"
+                        android:onClick="@{(view)->recyclerViewListener.onItemClick(view,movie)}"
                         android:layout_centerVertical="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
