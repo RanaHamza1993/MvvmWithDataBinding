@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="android.view.View"/>
         <variable
             name="movie"
             type="com.hamza.mvvmwithdatabinding.models.Movie" />
@@ -29,6 +30,7 @@
 
                     <ImageView
                         android:id="@+id/imageView"
+                        app:image="@{movie.image}"
                         android:background="@drawable/captain_marvel"
                         android:layout_width="match_parent"
                         android:scaleType="matrix"
@@ -40,6 +42,7 @@
                         android:textSize="12sp"
                         android:padding="2dp"
                         android:width="38dp"
+                        android:visibility="@{movie.is_new()==0 ? View.INVISIBLE : View.VISIBLE}"
                         android:textAlignment="center"
                         android:textColor="#ffffff"
                         android:layout_marginTop="10dp"
@@ -152,7 +155,7 @@
                 <TextView
                     android:id="@+id/textViewType"
                     android:layout_marginBottom="5dp"
-                    android:text=""
+                    android:text="@{movie.type}"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
                     android:padding="2dp"
                     android:background="@drawable/textview_border_background"
